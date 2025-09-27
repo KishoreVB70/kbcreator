@@ -31,8 +31,13 @@ export async function parseAndChunkHighestQuality(
   // 1) Parse PDFs with LlamaParse (set Agentic Plus preset in Cloud UI)
   const reader = new LlamaParseReader({
     apiKey: process.env.LLAMA_CLOUD_API_KEY,
-    resultType: "markdown", // preserves headings/tables nicely
-    // NOTE: Highest-fidelity preset is selected in LlamaCloud UI (Agentic Plus)
+    resultType: "markdown",
+    parse_mode: "parse_document_with_agent",
+    model: "anthropic-sonnet-4.0",
+    high_res_ocr: true, // for scanned PDFs
+    adaptive_long_table: true, // for complex tables
+    outlined_table_extraction: true, // for structured tables
+    output_tables_as_HTML: true, // for better table formatting
   });
 
   const documents: Document[] = await reader.loadData(filePath);
