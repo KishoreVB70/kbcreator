@@ -1,0 +1,31 @@
+{
+  "name": "kbcreator",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/KishoreVB70/kbcreator#readme",
+  "bugs": {
+    "url": "https://github.com/KishoreVB70/kbcreator/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KishoreVB70/kbcreator.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.5.2",
+    "typescript": "^5.9.2"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.2",
+    "llama-cloud-services": "^0.3.6",
+    "@qdrant/js-client-rest": "^1.14.1",
+    "openai": "^5.20.3",
+    "llamaindex": "^0.12.0"
+  }
+}
