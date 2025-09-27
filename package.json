@@ -22,10 +22,14 @@
     "typescript": "^5.9.2"
   },
   "dependencies": {
+    "@llamaindex/openai": "^0.4.20",
+    "@llamaindex/qdrant": "^0.1.32",
+    "@llamaindex/readers": "^3.1.21",
+    "@qdrant/js-client-rest": "^1.14.1",
     "dotenv": "^17.2.2",
     "llama-cloud-services": "^0.3.6",
-    "@qdrant/js-client-rest": "^1.14.1",
+    "llamaindex": "^0.12.0",
     "openai": "^5.20.3",
-    "llamaindex": "^0.12.0"
+    "uuid": "^13.0.0"
   }
 }
