@@ -7,7 +7,7 @@ import { QdrantClient } from "@qdrant/js-client-rest";
 export const vectorDBLLAMA = new QdrantVectorStore({
   url: process.env.QDRANT_URL,
   apiKey: process.env.QDRANT_API_KEY,
-  collectionName: 'kb_files_v1',
+  collectionName: 'kb_docs_v1',
   embedModel: openaiEmbedding,
 });
 
