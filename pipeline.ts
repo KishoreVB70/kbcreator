@@ -98,7 +98,7 @@ async function main() {
 
   for (const sec of sections) {
     const filePath = (sec.metadata?.path as string) ?? 'unknown.md';
-    const fileName = path.basename(filePath);
+    const { name: fileName, ext: _ext } = path.parse(filePath);
     const sectionTitle = inferSectionTitle(sec.getText(), filePath);
     const sectionAnchor = slugify(sectionTitle);
     const sectionIndex = (perFileSection.get(filePath) ?? 0) + 1;
