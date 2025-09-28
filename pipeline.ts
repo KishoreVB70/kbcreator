@@ -98,6 +98,7 @@ async function main() {
 
   for (const sec of sections) {
     const filePath = (sec.metadata?.path as string) ?? 'unknown.md';
+    const fileName = path.basename(filePath);
     const sectionTitle = inferSectionTitle(sec.getText(), filePath);
     const sectionAnchor = slugify(sectionTitle);
     const sectionIndex = (perFileSection.get(filePath) ?? 0) + 1;
@@ -107,9 +108,15 @@ async function main() {
     let chunkIndex = 0;
     for (const c of parts) {
       chunkIndex += 1;
+      // 1) original content trimmed
+      const raw = c.getText().trim();
+
+      c.text = `${fileName}||${raw}`;
+
       c.metadata = {
         ...c.metadata,
         path: filePath,
+        fileName,
         sectionTitle,
         sectionAnchor,
         sectionIndex,
@@ -154,6 +161,7 @@ async function main() {
       ...(c.metadata ?? {}),
     } as {
       text: string;
+      fileName: string;
       path: string;
       sectionTitle: string;
       sectionAnchor: string;
@@ -161,7 +169,6 @@ async function main() {
       chunkIndex: number;
       source: string;
       ext?: string;
-      fileName?: string;
     };
 
     return {
