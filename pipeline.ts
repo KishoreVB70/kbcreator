@@ -194,7 +194,7 @@ async function main() {
   console.log(`✅ Upserted ${upserted} chunks into ${COLLECTION} (flat payloads, deterministic ids).`);
 }
 
-main().catch((e) => {
-  console.error(e);
-  process.exit(1);
-});
+// main().catch((e) => {
+//   console.error(e);
+//   process.exit(1);
+// });
