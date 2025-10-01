@@ -1,8 +1,6 @@
 import 'dotenv/config';
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { createHash } from 'node:crypto';
-
 import { Document, MarkdownNodeParser, SentenceSplitter, TextNode } from 'llamaindex';
 import { vectorDB } from './helpers/vectorStore';
 import { openaiLlm } from './helpers/embedder';
@@ -10,7 +8,7 @@ import { v5 } from 'uuid';
 
 
 // ----- config knobs -----
-const KB_DIR = './assets';
+const KB_DIR = './newAssets';
 const COLLECTION = 'kb_docs_v1';
 const CHUNK_SIZE = 512;
 const CHUNK_OVERLAP = 64;
@@ -84,7 +82,7 @@ async function main() {
   // 1) load
   const docs = await loadMarkdownDocs();
   if (docs.length === 0) {
-    console.warn('No .md files in ./assets');
+    console.warn('No .md files in ./newAssets');
     return;
   }
 
@@ -198,3 +196,4 @@ async function main() {
 //   console.error(e);
 //   process.exit(1);
 // });
+// npx tsx pipeline.ts
